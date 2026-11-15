@@ -1,0 +1,109 @@
+/* 기본 색상과 글꼴: 이 값들을 바꾸면 페이지 분위기가 달라집니다. */
+:root {
+  --background: #f6f5ef;
+  --ink: #1d3530;
+  --muted: #5c6a64;
+  --accent: #f4794d;
+  --line: #d9ded4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { width: min(1120px, 100%); margin: 0 auto; padding: 0 36px; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 104px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { color: var(--ink); font-size: 30px; font-weight: 800; letter-spacing: -1.5px; text-decoration: none; }
+.brand span { color: #b44323; }
+.edition { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 1.2px; }
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 56px;
+  padding: 86px 0 54px;
+}
+
+.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 24px; font-size: 13px; font-weight: 700; }
+.eyebrow > span { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+h1 { margin: 0; font-size: clamp(40px, 6.6vw, 76px); line-height: 1.08; letter-spacing: -3.8px; }
+h1 > span { color: #b44323; }
+.description { margin: 28px 0 26px; color: var(--muted); font-size: 16px; line-height: 1.9; word-break: keep-all; }
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 54px;
+  padding: 15px 24px;
+  border: 1px solid var(--ink);
+  border-radius: 9px;
+  background: var(--ink);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+button:hover { background: #2e5048; transform: translateY(-2px); }
+button:active { transform: translateY(0); }
+button:focus-visible, a:focus-visible { outline: 3px solid #b44323; outline-offset: 5px; }
+.greeting { min-height: 52px; max-width: 400px; margin: 16px 0 0; color: var(--ink); font-size: 14px; line-height: 1.8; word-break: keep-all; }
+
+.code-card { min-width: 0; border: 1px solid #c8d2c3; border-radius: 16px; background: #e8eedf; box-shadow: 12px 12px 0 #dde4d7; transform: rotate(2deg); }
+.code-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; border-bottom: 1px solid #c8d2c3; color: #53614f; font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; }
+.window-dots { display: flex; gap: 6px; }
+.window-dots i { width: 8px; height: 8px; border: 1px solid #7b8e70; border-radius: 50%; }
+.window-dots i:first-child { background: #9eb38e; }
+.code-body { padding: 26px 24px 22px; }
+.code-comment { margin: 0 0 22px; color: #53614f; font: 12px/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; }
+pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.8 ui-monospace, SFMono-Regular, Consolas, monospace; }
+code { font: inherit; }
+.code-tag { color: #7b3f2b; }
+.code-note { display: flex; align-items: center; gap: 8px; margin-top: 30px; padding-top: 18px; border-top: 1px dashed #a8b89b; color: #53614f; font-size: 12px; }
+.code-note > span { color: #9a3c20; font-size: 20px; }
+
+.about { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.about h2 { flex-shrink: 0; margin: 0; font-size: 14px; }
+.about p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.9; word-break: keep-all; }
+.about p > span { margin: 0 8px; }
+footer { padding: 25px 0 32px; color: var(--muted); font-size: 11px; }
+
+/* 휴대전화와 좁은 화면에서는 위아래로 배치합니다. */
+@media (max-width: 760px) {
+  .page { padding: 0 24px; }
+  .header { min-height: 82px; }
+  .edition { font-size: 9px; letter-spacing: .5px; }
+  .intro { grid-template-columns: 1fr; gap: 36px; padding: 52px 0 46px; }
+  h1 { font-size: clamp(40px, 10vw, 70px); letter-spacing: -2.5px; }
+  .description { font-size: 15px; }
+  .greeting { min-height: 0; }
+  .code-card { width: calc(100% - 10px); max-width: 440px; margin: 0 auto; transform: none; box-shadow: 9px 9px 0 #dde4d7; }
+  .code-body { padding: 22px 18px; }
+  .about { display: block; }
+  .about h2 { margin-bottom: 12px; }
+  .about p > span { margin: 0 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button { transition: none; }
+  button:hover { transform: none; }
+}

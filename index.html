@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI와 함께 만든 다몬의 첫 번째 웹페이지입니다.">
+  <title>Hello VibeCoding | 다몬의 첫 웹페이지</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="./index.html" aria-label="처음으로">damon<span>.</span></a>
+      <span class="edition">MY FIRST WEBPAGE · 01</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span aria-hidden="true"></span> 나의 첫 바이브코딩</p>
+          <h1 id="page-title">Hello<br><span>VibeCoding!</span></h1>
+          <!-- 이 문장을 Cursor에서 원하는 자기소개로 바꿔 보세요. -->
+          <p class="description">AI와 함께 만든 첫 페이지입니다.</p>
+          <button id="try-button" type="button">눌러보기</button>
+          <p id="greeting-message" class="greeting" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+
+        <div class="code-card" aria-label="인사 코드 예시">
+          <div class="code-header">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>hello.html</span>
+          </div>
+          <div class="code-body">
+            <p class="code-comment">&lt;!-- 처음 만드는 나의 웹페이지 --&gt;</p>
+            <pre><code><span class="code-tag">&lt;h1&gt;</span>
+  Hello VibeCoding!
+<span class="code-tag">&lt;/h1&gt;</span>
+
+<span class="code-tag">&lt;p&gt;</span>
+  반가워요, 다몬입니다.
+<span class="code-tag">&lt;/p&gt;</span></code></pre>
+            <div class="code-note"><span aria-hidden="true">✦</span> 호기심이 코드가 되는 순간</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" aria-labelledby="about-title">
+        <h2 id="about-title">이 페이지는 이렇게 만들어요</h2>
+        <p>GPT로 코드 작성 <span aria-hidden="true">→</span> Cursor에서 수정 <span aria-hidden="true">→</span> GitHub Pages로 공개</p>
+      </section>
+    </main>
+
+    <footer>생산성 도구로서 ChatGPT · Hello VibeCoding 실습</footer>
+  </div>
+
+  <script>
+    // 눌러보기 버튼을 누르면 인사말을 표시합니다.
+    const tryButton = document.getElementById('try-button');
+    const greetingMessage = document.getElementById('greeting-message');
+
+    tryButton.addEventListener('click', function () {
+      greetingMessage.textContent = '반가워요!';
+    });
+  </script>
+</body>
+</html>
